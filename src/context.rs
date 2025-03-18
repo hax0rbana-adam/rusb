@@ -266,7 +266,7 @@ impl UsbContext for GlobalContext {
                 USB_CONTEXT = match libusb_init(context.as_mut_ptr()) {
                     0 => context.assume_init(),
                     err => panic!(
-                        "Can't init Global usb context, error {:?}",
+                        "Can't init Global usb context (this can happen if no USB devices are plugged in), error {:?}",
                         error::from_libusb(err)
                     ),
                 }
